@@ -166,8 +166,7 @@ public class DifferentTasks {
 
     //Найти второе по величине число в массиве
     public static int secondBigNumber(Integer[] numbs) {
-        ArrayList<Integer> nums = new ArrayList<>(Arrays.asList(numbs));
-        nums.sort(Collections.reverseOrder()); // или nums.sort(Comparator.reverseOrder());
-        return nums.get(1);
+        Arrays.sort(numbs, Collections.reverseOrder()); // Arrays.sort(numbs); - если массив примитив int[]
+        return numbs[1];                                // return numbs[numbs.length - 2];
     }
 }
