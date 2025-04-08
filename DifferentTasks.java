@@ -1,7 +1,5 @@
 import java.util.*;
-import java.util.function.Function;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class DifferentTasks {
     public static void main(String[] args) {
@@ -13,6 +11,7 @@ public class DifferentTasks {
         int[] minus = {-1, -2, -4};
         List<String> surname = new ArrayList<>(List.of("Аведов", "Антоненко", "Гусев", "Павлов"));
         String s = "11111177777000000"; // Заморочистая
+        Integer[] arr = {10, 5, 20, 8, 30, 20};
 
         System.out.println(sortInt(sortedList));
         System.out.println(validate(str));
@@ -26,11 +25,12 @@ public class DifferentTasks {
         System.out.println(convertToPositiveStream(minus));
         System.out.println(getNamesStartingWithA(surname));
         System.out.println(findLongestSubstring(s));
+        System.out.println(secondBigNumber(arr));
     }
 
     // Удалить дубликаты из сортированного списка int[] sortedList = {1, 2, 2, 3, 3, 4, 5, 6, 6}
     private static Set<Integer> sortInt(int[] nums) {
-        Set<Integer> sortNum = new HashSet<>(); // Или LinkedHashSet для сохранения оригинального порядка
+        Set<Integer> sortNum = new HashSet<>(); // Или LinkedHashSet для 100% сохранения оригинального порядка
         for (int num : nums) {
             sortNum.add(num);
         }
@@ -126,9 +126,9 @@ public class DifferentTasks {
 
     // Из отрицательных в положительные (Stream версия)
     private static List<Integer> convertToPositiveStream(int[] numbers) {
-        return Arrays.stream(numbers)                // Преобразуем массив в Stream
-                .map(Math::abs)                 // Math.abs() - с помощью ссылки на метод или (num -> Math.abs(num))
-                .boxed()                        // Преобразуем int в Integer
+        return Arrays.stream(numbers)          // Преобразуем массив в Stream
+                .map(Math::abs)                // Math.abs() - с помощью ссылки на метод или (num -> Math.abs(num))
+                .boxed()                       // Преобразуем int в Integer
                 .collect(Collectors.toList()); // Собираем результат в список
     }
 
@@ -162,5 +162,12 @@ public class DifferentTasks {
             }
         }
         return longest;
+    }
+
+    //Найти второе по величине число в массиве
+    public static int secondBigNumber(Integer[] numbs) {
+        ArrayList<Integer> nums = new ArrayList<>(Arrays.asList(numbs));
+        nums.sort(Collections.reverseOrder()); // или nums.sort(Comparator.reverseOrder());
+        return nums.get(1);
     }
 }
