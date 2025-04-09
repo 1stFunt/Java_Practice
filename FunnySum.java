@@ -18,7 +18,7 @@ public class FunnySum {
         System.out.println("" + int_3 + int_2 + int_1);
     }
 
-    // С помощью цифр
+    // Способ помощью цифр
     public static void withNumber(int a, int b) {
         // Сложение поразрядно с отсеиванием лишних цифр
         int int_3 = (a / 100 + b / 100) % 10; // Первый разряд

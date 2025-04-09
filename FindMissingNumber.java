@@ -25,7 +25,7 @@ public class FindMissingNumber {
         }
     }
 
-    // Способ через Set (плохой вариант из-за нагрузки при большом массиве)
+    // Способ через HashSet (плохой вариант из-за нагрузки при большом массиве)
     public static void findNumber(Integer[] array) {
         Set<Integer> set = new HashSet<>(Arrays.asList(array)); // Arrays.asList() не работает с примитивами Int[] array
         for (int i = 1; i <= array.length + 1; i++) {

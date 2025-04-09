@@ -4,7 +4,6 @@ public class Codewars7Kyu {
     public static void main(String[] args) {
         int[] array = {15, 11, 10, 7, 12}; // нужно получить [15,7,12,10,11]
         int square = 9119; // 9119 => 811181
-
         System.out.println(Arrays.toString(changeArr(array)));
         System.out.println(toSquare(square));
         System.out.println(toSquareV2(square));
@@ -54,4 +53,3 @@ public class Codewars7Kyu {
         return Integer.parseInt(result.toString());  // Преобразуем результат обратно в число
     }
 }
-

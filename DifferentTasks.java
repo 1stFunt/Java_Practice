@@ -12,7 +12,6 @@ public class DifferentTasks {
         List<String> surname = new ArrayList<>(List.of("Аведов", "Антоненко", "Гусев", "Павлов"));
         String s = "11111177777000000"; // Заморочистая
         Integer[] arr = {10, 5, 20, 8, 30, 20};
-
         System.out.println(sortInt(sortedList));
         System.out.println(validate(str));
         System.out.println(changeVar(change));
