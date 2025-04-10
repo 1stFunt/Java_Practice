@@ -58,7 +58,7 @@ public class DifferentTasks {
     // Меняем местами HashMap<Integer, String> на HashMap<String, Integer>
     private static HashMap<String, Integer> changeVar(Map<Integer, String> str) {
         HashMap<String, Integer> strInt = new HashMap<>();
-        for (var x : str.entrySet()) {
+        for (var x : str.entrySet()) {  // Или Map.Entry<String, Integer> x : str.entrySet
             strInt.put(x.getValue(), x.getKey());
         }
         return strInt;
