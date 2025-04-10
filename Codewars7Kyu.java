@@ -4,9 +4,11 @@ public class Codewars7Kyu {
     public static void main(String[] args) {
         int[] array = {15, 11, 10, 7, 12}; // нужно получить [15,7,12,10,11]
         int square = 9119; // 9119 => 811181
+        String pin = "4235";
         System.out.println(Arrays.toString(changeArr(array)));
         System.out.println(toSquare(square));
         System.out.println(toSquareV2(square));
+        System.out.println(validatePin(pin));
     }
 
     // [15,11,10,7,12] => [15,7,12,10,11] Самое большое -> самое маленькое и тд.
@@ -51,5 +53,18 @@ public class Codewars7Kyu {
             num /= 10;  // Убираем последнюю цифру из числа
         }
         return Integer.parseInt(result.toString());  // Преобразуем результат обратно в число
+    }
+
+    // Проверка 4 или 6 значных PIN-кодов, только цифры
+    public static boolean validatePin(String pin) {
+        if (pin.length() == 4 || pin.length() == 6) {
+            for (char ch : pin.toCharArray()) {
+                if (ch < '0' || ch > '9') {   // Или !Character.isDigit(ch)
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
     }
 }
