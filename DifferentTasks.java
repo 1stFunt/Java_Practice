@@ -144,23 +144,22 @@ public class DifferentTasks {
 
     // Найти самую длинную подстроку из одинаковых символов, если несколько, то самую левую
     public static String findLongestSubstring(String s) {
-        String longest = "";  // Это будет самая длинная подстрока
-        String current = "" + s.charAt(0);  // Начинаем с первого символа строки
-        // Проходим по строке начиная с 1-го индекса
+        StringBuilder longest = new StringBuilder();
+        StringBuilder current = new StringBuilder().append(s.charAt(0));
         for (int i = 1; i < s.length(); i++) {
-            // Если текущий символ равен предыдущему, продолжаем собирать подстроку
             if (s.charAt(i) == s.charAt(i - 1)) {
-                current += s.charAt(i);
+                current.append(s.charAt(i));
             } else {
-                // Если символ отличается, начинаем новую подстроку
-                current = "" + s.charAt(i);
+                // Если символ отличается, начинаем новую подстроку с текущего символа
+                current.setLength(1);  // Сбрасываем длину до 1 - можно на 0 и потом append, но медленнее в теории
+                current.setCharAt(0, s.charAt(i));  // Устанавливаем текущий символ как единственный в подстроке
             }
-            // Обновляем самую длинную подстроку, если текущая длиннее
             if (current.length() > longest.length()) {
-                longest = current;
+                longest.setLength(0);  // Очищаем longest перед обновлением
+                longest.append(current);  // Копируем current в longest
             }
         }
-        return longest;
+        return longest.toString();
     }
 
     //Найти второе по величине число в массиве
