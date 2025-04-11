@@ -10,7 +10,7 @@ public class DifferentTasks {
         int[] numbers = {1, 2, 2, 3, 3, 4, 5, 6, 6};
         int[] minus = {-1, -2, -4};
         List<String> surname = new ArrayList<>(List.of("Аведов", "Антоненко", "Гусев", "Павлов"));
-        String s = "11111177777000000"; // Заморочистая
+        String s = "11111177777000000";
         Integer[] arr = {10, 5, 20, 8, 30, 20};
         System.out.println(sortInt(sortedList));
         System.out.println(validate(str));
@@ -150,9 +150,8 @@ public class DifferentTasks {
             if (s.charAt(i) == s.charAt(i - 1)) {
                 current.append(s.charAt(i));
             } else {
-                // Если символ отличается, начинаем новую подстроку с текущего символа
-                current.setLength(1);  // Сбрасываем длину до 1 - можно на 0 и потом append, но медленнее в теории
-                current.setCharAt(0, s.charAt(i));  // Устанавливаем текущий символ как единственный в подстроке
+                current.setLength(0);         // Можно setLength(1) +
+                current.append(s.charAt(i));  // + setCharAt - это чуть эффективнее при огромных строках
             }
             if (current.length() > longest.length()) {
                 longest.setLength(0);  // Очищаем longest перед обновлением
