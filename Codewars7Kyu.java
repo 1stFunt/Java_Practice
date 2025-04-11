@@ -59,7 +59,7 @@ public class Codewars7Kyu {
     public static boolean validatePin(String pin) {
         if (pin.length() == 4 || pin.length() == 6) {
             for (char ch : pin.toCharArray()) {
-                if (ch < '0' || ch > '9') {   // Или !Character.isDigit(ch)
+                if (ch < '0' || ch > '9') {  // Или !Character.isDigit(ch)
                     return false;
                 }
             }
