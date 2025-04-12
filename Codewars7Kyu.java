@@ -1,14 +1,20 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Codewars7Kyu {
     public static void main(String[] args) {
         int[] array = {15, 11, 10, 7, 12}; // нужно получить [15,7,12,10,11]
         int square = 9119; // 9119 => 811181
         String pin = "4235";
+        List<String> names = new ArrayList<>(List.of("Peter", "Stephen", "Joe"));
+        String str = "testing";
         System.out.println(Arrays.toString(changeArr(array)));
         System.out.println(toSquare(square));
         System.out.println(toSquareV2(square));
         System.out.println(validatePin(pin));
+        System.out.println(friend(names));
+        System.out.println(getMiddle(str));
     }
 
     // [15,11,10,7,12] => [15,7,12,10,11] Самое большое -> самое маленькое и тд.
@@ -66,5 +72,26 @@ public class Codewars7Kyu {
             return true;
         }
         return false;
+    }
+
+    // Найти имена, которые равны 4 буквам
+    public static List<String> friend(List<String> x) {
+        List<String> friendNames = new ArrayList<>();
+        for (int i = 0; i < x.size(); i++) {
+            String str = x.get(i);
+            if (str.length() == 4) {
+                friendNames.add(str);
+            }
+        }
+        return friendNames;
+    }
+
+    // "test" --> "es", "testing" --> "t", "middle" --> "dd", "A" --> "A"
+    public static String getMiddle(String word) {
+        if (word.length() % 2 != 0) { // Или return word.substring((word.length() - 1) / 2, word.length() / 2 + 1);
+            return String.valueOf(word.charAt(word.length() / 2));
+        } else {
+            return word.substring(word.length() / 2 - 1, word.length() / 2 + 1);
+        }
     }
 }
