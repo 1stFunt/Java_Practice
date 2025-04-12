@@ -88,10 +88,10 @@ public class Codewars7Kyu {
 
     // "test" --> "es", "testing" --> "t", "middle" --> "dd", "A" --> "A"
     public static String getMiddle(String word) {
-        if (word.length() % 2 != 0) { // Или return word.substring((word.length() - 1) / 2, word.length() / 2 + 1);
+        if (word.length() % 2 != 0) {
             return String.valueOf(word.charAt(word.length() / 2));
         } else {
             return word.substring(word.length() / 2 - 1, word.length() / 2 + 1);
         }
-    }
+    }   // Или в одну строку решение return word.substring((word.length() - 1) / 2, word.length() / 2 + 1);
 }
