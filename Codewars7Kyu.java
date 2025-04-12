@@ -93,5 +93,5 @@ public class Codewars7Kyu {
         } else {
             return word.substring(word.length() / 2 - 1, word.length() / 2 + 1);
         }
-    }   // Или в одну строку решение return word.substring((word.length() - 1) / 2, word.length() / 2 + 1);
+    }   // Или в одну строку решение: return word.substring((word.length() - 1) / 2, word.length() / 2 + 1);
 }
