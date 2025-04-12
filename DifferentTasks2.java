@@ -1,3 +1,4 @@
+import java.net.SocketImpl;
 import java.util.*;
 
 public class DifferentTasks2 {
@@ -10,6 +11,9 @@ public class DifferentTasks2 {
         System.out.println(allSumStream(num1));
         System.out.println(sequence(numbers));
         duplicates(numbers);
+        duplicatesWithMap(numbers);
+        duplicatesWithMapV2(numbers);
+        changeDuplicates(numbers);
     }
 
     // Сложить ключи + значения в списках
@@ -56,5 +60,49 @@ public class DifferentTasks2 {
             }
         }
         System.out.println(find);
+    }
+
+    // Вывести числа из массива у которых есть дубликаты (через Map)
+    public static void duplicatesWithMap(int[] numbs) {
+        Map<Integer, Integer> map = new HashMap<>();
+        Set<Integer> duplicates = new HashSet<>();
+        for (int num : numbs) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+            if (map.get(num) > 1) {
+                duplicates.add(num);
+            }
+        }
+        System.out.println(duplicates);
+    }
+
+    // Вывести числа из массива у которых есть дубликаты (через Map - второй способ)
+    public static void duplicatesWithMapV2(int[] numbs) {
+        Map<Integer, Integer> map = new HashMap<>();
+        Set<Integer> duplicates = new HashSet<>();
+        for (int num : numbs) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+            if (entry.getValue() > 1) {
+                duplicates.add(entry.getKey());
+            }
+        }
+        System.out.println(duplicates);
+    }
+
+    // Удаляет дубликаты из массива и заменяет на нижнее подчёркивание [1,3,2,3] => [1,2,3,_]
+    // + Сортировка и вывод уникальных значений
+    public static void changeDuplicates(int[] numbs) {
+        Set<Integer> set = new HashSet<>();
+        for (int num : numbs) {
+            set.add(num);
+        }
+        List<Object> list = new ArrayList<>(set);
+        for (int i = 0; i < numbs.length; i++) {
+            if (i >= list.size()) {
+                list.add("_");
+            }
+        }
+        System.out.println(list);
     }
 }
