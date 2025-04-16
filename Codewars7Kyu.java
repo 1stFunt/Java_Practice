@@ -7,7 +7,7 @@ public class Codewars7Kyu {
         int[] array = {15, 11, 10, 7, 12}; // нужно получить [15,7,12,10,11]
         int square = 9119; // 9119 => 811181
         String pin = "4235";
-        List<String> names = new ArrayList<>(List.of("Peter", "Stephen", "Joe"));
+        List<String> names = new ArrayList<>(List.of("Peter", "Stephen", "Joen"));
         String str = "testing";
         System.out.println(Arrays.toString(changeArr(array)));
         System.out.println(toSquare(square));
@@ -77,10 +77,9 @@ public class Codewars7Kyu {
     // Найти имена, которые равны 4 буквам
     public static List<String> friend(List<String> x) {
         List<String> friendNames = new ArrayList<>();
-        for (int i = 0; i < x.size(); i++) {
-            String str = x.get(i);
-            if (str.length() == 4) {
-                friendNames.add(str);
+        for (String name : x) {
+            if (name.length() == 4) {
+                friendNames.add(name);
             }
         }
         return friendNames;
