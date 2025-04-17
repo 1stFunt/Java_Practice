@@ -82,9 +82,9 @@ public class DifferentTasks {
     }
 
     // Первые n чисел Фибоначчи и их сумма
-    private static void printFibonacci(int n) {
+    private static void printFibonacci(int num) {
         int a = 0, b = 1, sum = 0;
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < num; i++) {
             System.out.print(a);
             sum += a;
             int next = a + b;
