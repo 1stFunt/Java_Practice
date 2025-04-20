@@ -7,11 +7,9 @@ public class MoreStream {
         public static void main(String[] args) {
             int result = Stream.of(1, 2, 3, 4, 5, 11)
                     .filter(x -> x % 2 != 0)
-                    .mapToInt(x -> x)  //или .reduce(Integer::sum)
+                    .mapToInt(x -> x)         //или .reduce(Integer::sum)
                     .sum();                   //или .orElseThrow(RuntimeException::new);
-            System.out.println(result);
-        }
-    }
+            System.out.println(result);}}
 
     static class Stream1 { // Вывести числа без отрицательных знаков
         public static void main(String[] args) {
@@ -19,15 +17,11 @@ public class MoreStream {
             List<Integer> result = num.stream()
                     .map(Math::abs)
                     .collect(Collectors.toUnmodifiableList()); // результат в виде неизменяемого списка
-            System.out.println(result);
-        }
-    }
+            System.out.println(result);}}
 
     static class Stream2 {// Считает количество значений стрима
         public static void main(String[] args) {
-            System.out.println(Stream.of(13, 35, 76, 89, 90, 67, 85).count());
-        }
-    }
+            System.out.println(Stream.of(13, 35, 76, 89, 90, 67, 85).count());}}
 
     static class Stream3 {// Посчитать сумму ключей и значений, нужно сложить все ключи и все инты во всех списках,
         // а затем сложить сумму // ключей и значений
@@ -41,17 +35,13 @@ public class MoreStream {
                             .stream().mapToInt(Integer::intValue)
                             .sum())
                     .sum();
-            System.out.println(sum);
-        }
-    }
+            System.out.println(sum);}}
 
     static class Stream4 {// Уникальные элементы из списка
         public static void main(String[] args) {
             List<Integer> list = List.of(1, 2, 2, 2, 4, 5);
             List<Integer> list1 = list.stream().distinct().toList();
-            System.out.println(list1);
-        }
-    }
+            System.out.println(list1);}}
 
     static class Stream5 {//вывести только четные числа
         public static void main(String[] args) {
@@ -59,9 +49,7 @@ public class MoreStream {
             List<Integer> evenNumbers = num.stream()
                     .filter(e -> e % 2 == 0)
                     .toList();
-            System.out.println(evenNumbers);
-        }
-    }
+            System.out.println(evenNumbers);}}
 
     static class Stream6 {//вывести отсортированный список в порядке убывания
         public static void main(String[] args) {
@@ -69,17 +57,23 @@ public class MoreStream {
             List<Integer> evenNumbers = num.stream()
                     .sorted(Comparator.reverseOrder())
                     .toList();
-            System.out.println(evenNumbers);
-        }
-    }
+            System.out.println(evenNumbers);}}
 
     static class Stream7 {//есть ли в списке хотя бы одно четное число
         public static void main(String[] args) {
             List<Integer> num = Arrays.asList(1, 2, 3, 5, 8, 9, 7);
             boolean evenNumbers = num.stream().anyMatch(e -> e % 2 == 0);
-            System.out.println(evenNumbers);
+            System.out.println(evenNumbers);}}
+
+    static class Stream8 { // Программа, которая считает сумму чисел больше 5 в массиве
+        public static void main(String[] args) {
+            int[] nums = {1, 2, 5, 7, 4, 9};
+            System.out.println(myMethod(nums));
         }
-    }
+        private static int myMethod(int[] arr) {
+            return Arrays.stream(arr)
+                    .filter(num -> num > 5)
+                    .sum();}}
 
     static class CollectionList1 { // Создать коллекцию целых чисел, написать программу:
         //  Которая четные числа умножает на 100, а от нечетных отнимает 100 и возвращает коллекцию.
@@ -90,11 +84,9 @@ public class MoreStream {
                     .map(x -> x % 2 == 0 ? x * 100 : x - 100)
                     .toList();
             System.out.println(firstlist);
-            System.out.println(secondlist);
-        }
-    }
+            System.out.println(secondlist);}}
 
-    static class CollectionList2 { /*Напишите программу, которая из списка строк выбирает только те, которые:
+    static class CollectionList2 { /*Напишите программу, которая из списка строк выбирает только те что:
     1.	Длиной больше 3 символов.
 	2.	Начинаются с буквы “J”.
     3.	Преобразует все выбранные строки в заглавный регистр.*/
@@ -107,7 +99,6 @@ public class MoreStream {
                     .filter(s -> s.length() > 3)
                     .filter(s -> s.startsWith("J"))
                     .map(String::toUpperCase)
-                    .toList();
-        }
+                    .toList();}
     }
 }
