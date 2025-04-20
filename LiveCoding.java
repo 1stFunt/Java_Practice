@@ -12,7 +12,7 @@ public class LiveCoding {
         // Убрать дубликаты коллекции используя цикл Arrays.asList(1, 2, 3, 2, 4, 5, 4, 6, 7)
         List<Integer> arr = Arrays.asList(1, 2, 3, 2, 4, 5, 4, 6, 7);
         System.out.println(dub(arr));
-        // С помощью Stream
+        // Убрать дубликаты с помощью Stream
         arr.stream().distinct().forEach(System.out::println);
         List<User> users = Arrays.asList(new User("A", 1), new User("B", 2),
                 new User("c", 3), new User("A", 3));

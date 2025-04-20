@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class DifferentTasks3 {
     public static void main(String[] args) {
@@ -19,6 +16,9 @@ public class DifferentTasks3 {
         findDuplicates(arr);
         int[] array = {2, 5, 3, 2, 3, 4, 6, 7, 5, 4, 8, -1}; // Метода для нахождения уникальных элементов
         findUniqueElements(array);
+        List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6); // Макс и мин число
+        findMinAndMax(list);
+        minAndMax(list);
     }
 
     // Метод для проверки, является ли строка анаграммой
@@ -104,5 +104,29 @@ public class DifferentTasks3 {
         } else {
             System.out.println("В массиве нет уникальных элементов");
         }
+    }
+
+    // Макс и мин число
+    public static int[] findMinAndMax(List<Integer> list) {
+        int max = list.get(0);
+        int min = list.get(0);
+        for (int num : list) {
+            if (num > max) {
+                max = num;
+            }
+            if (num < min) {
+                min = num;
+            }
+        }
+        System.out.println("Максимальное число: " + max + ", Минимальное число: " + min);
+        return new int[]{min, max};
+    }
+
+    // Макс и мин число через Стрим
+    static int[] minAndMax(List<Integer> list) {
+        int min = list.stream().min(Integer::compareTo).get();
+        int max = list.stream().max(Integer::compareTo).get();
+        System.out.println("Максимальное число: " + max + ", Минимальное число: " + min);
+        return new int[]{min, max};
     }
 }
