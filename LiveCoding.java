@@ -18,10 +18,17 @@ public class LiveCoding {
                 new User("c", 3), new User("A", 3));
         SortedSet<User> sortedUsers = new TreeSet<>(users);
         System.out.println(sortedUsers);
+        // Анаграммы
+        String str1 = "listen";
+        String str2 = "silent";
+        // Убрать дубли из строки
+        String str3 = "1, 2, 3, 4, 4, 5, 10, 11";
+        System.out.println(dubl(str3));
+        System.out.println(findAnagramm(str1, str2));
     }
 
     public static int[] reverse(int[] numbs) {
-        int temp = 0;
+        int temp;
         for (int i = 0; i < numbs.length / 2; i++) {
             temp = numbs[i];
             numbs[i] = numbs[numbs.length - 1 - i];
@@ -59,5 +66,21 @@ public class LiveCoding {
             }
         }
         return result;
+    }
+
+    public static Set<String> dubl(String str) {
+        String[] find = str.split(", ");
+        return new HashSet<>(Arrays.asList(find));
+    }
+
+    public static boolean findAnagramm(String str1, String str2) {
+        if (str1.length() != str2.length()) {
+            return false;
+        }
+        char[] first = str1.toCharArray();
+        char[] second = str2.toCharArray();
+        Arrays.sort(first);
+        Arrays.sort(second);
+        return Arrays.equals(first, second);
     }
 }
