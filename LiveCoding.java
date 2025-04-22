@@ -19,12 +19,13 @@ public class LiveCoding {
         SortedSet<User> sortedUsers = new TreeSet<>(users);
         System.out.println(sortedUsers);
         // Анаграммы
-        String str1 = "listen";
+        String str1 = "listene";
         String str2 = "silent";
         // Убрать дубли из строки
         String str3 = "1, 2, 3, 4, 4, 5, 10, 11";
         System.out.println(dubl(str3));
         System.out.println(findAnagramm(str1, str2));
+        System.out.println(findAnagrammStream(str1, str2));
     }
 
     public static int[] reverse(int[] numbs) {
@@ -82,5 +83,9 @@ public class LiveCoding {
         Arrays.sort(first);
         Arrays.sort(second);
         return Arrays.equals(first, second);
+    }
+
+    public static boolean findAnagrammStream(String str1, String str2) {
+        return Arrays.equals(str1.chars().sorted().toArray(), str2.chars().sorted().toArray());
     }
 }

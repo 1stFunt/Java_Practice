@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Codewars7Kyu {
     public static void main(String[] args) {
@@ -15,6 +17,8 @@ public class Codewars7Kyu {
         System.out.println(validatePin(pin));
         System.out.println(friend(names));
         System.out.println(getMiddle(str));
+        System.out.println(maskify(str));
+        System.out.println(maskifyStream(str));
     }
 
     // [15,11,10,7,12] => [15,7,12,10,11] Самое большое -> самое маленькое и тд.
@@ -93,4 +97,22 @@ public class Codewars7Kyu {
             return word.substring(word.length() / 2 - 1, word.length() / 2 + 1);
         }
     }   // Или в одну строку решение: return word.substring((word.length() - 1) / 2, word.length() / 2 + 1);
+
+    // Написать функцию, которая изменяет все символы, кроме последних четырех, на '#'
+    public static String maskify(String str) {
+        char[] arr = str.toCharArray();
+        if (arr.length > 4)
+            for (int i = 0; i < arr.length - 4; i++) {
+                arr[i] = '#';
+            }
+        return new String(arr);
+    }
+
+    // Написать функцию, которая изменяет все символы, кроме последних четырех, на '#' (Стрим версия)
+    public static String maskifyStream(String str) {
+        if (str.length() <= 4) return str;
+        return IntStream.range(0, str.length() - 4)
+                .mapToObj(i -> "#")
+                .collect(Collectors.joining()) + str.substring(str.length() - 4);
+    }
 }
