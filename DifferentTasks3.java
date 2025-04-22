@@ -107,7 +107,7 @@ public class DifferentTasks3 {
     }
 
     // Макс и мин число
-    public static int[] findMinAndMax(List<Integer> list) {
+    public static void findMinAndMax(List<Integer> list) {
         int max = list.get(0);
         int min = list.get(0);
         for (int num : list) {
@@ -119,14 +119,12 @@ public class DifferentTasks3 {
             }
         }
         System.out.println("Максимальное число: " + max + ", Минимальное число: " + min);
-        return new int[]{min, max};
     }
 
     // Макс и мин число через Стрим
-    static int[] minAndMax(List<Integer> list) {
+    static void minAndMax(List<Integer> list) {
         int min = list.stream().min(Integer::compareTo).get();
         int max = list.stream().max(Integer::compareTo).get();
         System.out.println("Максимальное число: " + max + ", Минимальное число: " + min);
-        return new int[]{min, max};
     }
 }
